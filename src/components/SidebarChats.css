@@ -1,0 +1,24 @@
+.chats {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #e9edef;
+  cursor: pointer;
+}
+.chats:hover {
+  background: #f5f6f6;
+}
+.chats__Avatar {
+  margin: 10px;
+}
+.chat__person {
+  padding: 5px;
+}
+.chats__addNew {
+  padding: 15px;
+  border-bottom: 1px solid #e9edef;
+  cursor: pointer;
+}
+.chats__addNew:hover {
+  background: #f5f6f6;
+}

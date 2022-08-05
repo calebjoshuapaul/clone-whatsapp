@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+  background: #dfdfdd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app__body {
+  display: flex;
+  background: #f8f8f8;
+  height: 90vh;
+  width: 90vw;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
+}
