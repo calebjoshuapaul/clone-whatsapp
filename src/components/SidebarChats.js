@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function SidebarChats({ id, name, addNewChat }) {
   const [seed, setSeed] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const createChat = () => {
     const roomName = prompt("Enter a name to create chat room.");
@@ -19,8 +20,17 @@ function SidebarChats({ id, name, addNewChat }) {
   };
 
   useEffect(() => {
+    if (id) {
+      db.collection("rooms")
+        .doc(id)
+        .collection("messages")
+        .orderBy("timestamp", "asc")
+        .onSnapshot((snapshot) =>
+          setMessages(snapshot.docs.map((doc) => doc.data()))
+        );
+    }
     setSeed(id);
-  }, []);
+  }, [id]);
 
   return !addNewChat ? (
     <Link to={`/rooms/${id}`}>
@@ -33,14 +43,14 @@ function SidebarChats({ id, name, addNewChat }) {
             <h3>{name}</h3>
           </div>
           <div className="sidebar__chat__message">
-            <p>Chats....</p>
+            <p>{messages[messages.length - 1]?.message}</p>
           </div>
         </div>
       </div>
     </Link>
   ) : (
     <div onClick={createChat} className="sidebar__chats__addNew">
-      <h3>Add new chat</h3>
+      <h3>Add a new chat room</h3>
     </div>
   );
 }
