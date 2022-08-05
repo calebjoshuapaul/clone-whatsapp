@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./SidebarChats.css";
 import { Avatar } from "@mui/material";
+import db from "../firebaseConfig";
+import { Link } from "react-router-dom";
 
-function SidebarChats({ addNewChat }) {
+function SidebarChats({ id, name, addNewChat }) {
   const [seed, setSeed] = useState("");
 
   const createChat = () => {
@@ -10,28 +12,34 @@ function SidebarChats({ addNewChat }) {
 
     if (roomName) {
       //database stuff...
+      db.collection("rooms").add({
+        name: roomName,
+      });
     }
   };
 
   useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000));
+    setSeed(id);
   }, []);
+
   return !addNewChat ? (
-    <div className="chats">
-      <div className="chats__Avatar">
-        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
-      </div>
-      <div className="chat__person">
-        <div className="chat__name">
-          <h3>Name</h3>
+    <Link to={`/rooms/${id}`}>
+      <div className="sidebar__chats">
+        <div className="sidebar__chats__Avatar">
+          <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
         </div>
-        <div className="chat__message">
-          <p>Chats....</p>
+        <div className="sidebar__chat__person">
+          <div className="sidebar__chat__name">
+            <h3>{name}</h3>
+          </div>
+          <div className="sidebar__chat__message">
+            <p>Chats....</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   ) : (
-    <div onClick={createChat} className="chats__addNew">
+    <div onClick={createChat} className="sidebar__chats__addNew">
       <h3>Add new chat</h3>
     </div>
   );

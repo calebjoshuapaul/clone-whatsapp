@@ -1,24 +1,28 @@
-.chats {
+.sidebar__chats {
   display: flex;
   align-items: center;
   padding: 5px;
   border-bottom: 1px solid #e9edef;
   cursor: pointer;
 }
-.chats:hover {
+.sidebar__chats:hover {
   background: #f5f6f6;
 }
-.chats__Avatar {
+.sidebar__chats__Avatar {
   margin: 10px;
 }
-.chat__person {
+.sidebar__chat__person {
   padding: 5px;
 }
-.chats__addNew {
+.sidebar__chats__addNew {
   padding: 15px;
   border-bottom: 1px solid #e9edef;
   cursor: pointer;
 }
-.chats__addNew:hover {
+.sidebar__chats__addNew:hover {
   background: #f5f6f6;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
