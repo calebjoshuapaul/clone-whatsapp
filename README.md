@@ -1,6 +1,15 @@
+[Live link](https://clone-whatsapp-777.web.app/rooms/il4OQGvu0mi345P6hsVJ)
+
 # Whatsapp clone
 Create room and chat.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).Deployed using firebase.
+## Tools and Technologies used: 
+  - ReactJS
+  - React Router
+  - Firebase 
+  - Material UI
+  
+  
 
-[Live link](https://clone-whatsapp-777.web.app/rooms/il4OQGvu0mi345P6hsVJ).
+
+### This web app has the functionality to create a room and chat in real-time, To install and view on your local machine fork and clone the project and run: <code>npm install</code>, to install all its dependencies.
